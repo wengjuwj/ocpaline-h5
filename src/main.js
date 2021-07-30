@@ -1,6 +1,7 @@
 import Vue from 'vue'
-import router from './router/index'
 import Vant from 'vant';
+import 'lib-flexible/flexible'
+import router from './router/index'
 import { VueAxios } from './utils/request'
 import 'vant/lib/index.css';
 import '@/styles/reset.less';

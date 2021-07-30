@@ -1,5 +1,5 @@
 <template>
-  <div class="h5-contain">
+  <div class="">
      
   </div>
 </template>

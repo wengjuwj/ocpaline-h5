@@ -1,5 +1,5 @@
 <template>
-  <div class="pc-layout">
+  <div class="h5-layout">
       <Header></Header>
       <div class="container">
         <router-view></router-view>
@@ -29,5 +29,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .pc-layout{}
+  .h5-layout{}
 </style>
