@@ -2,6 +2,7 @@
   <div class="h5-contain">
      <Classification></Classification>
      <CardBoxCol></CardBoxCol>
+     <CardBoxCol title="往期回播"></CardBoxCol>
      <CardBoxLine></CardBoxLine>
   </div>
 </template>

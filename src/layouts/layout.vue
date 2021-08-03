@@ -29,5 +29,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .h5-layout{}
+html{
+  background: red;
+}
+.h5-layout{
+  
+}
 </style>

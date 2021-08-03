@@ -61,11 +61,13 @@ export default {
 
 <style lang="less" scoped>
   .one-level{
+    background: #fff;
     /deep/.van-tab__text{
       font-size: 16px;
     }
   }
   .two-level{
+    background: #fff;
     padding: 0 15px;
     /deep/.van-tab__text{
       font-size: 14px;
