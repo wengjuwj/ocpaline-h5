@@ -10,7 +10,7 @@
         </div>
         <!-- 内容部分 -->
         <div class="box-line-card">
-            <div class="box-card" v-for="item1 in 4 " :key="item1">
+            <div class="box-card" v-for="(item,index) in cardList " :key="index">
                 <!-- 左封面 -->
                 <div class="box-card-left">
                     <!-- 存放封面图片部分 -->
@@ -22,8 +22,37 @@
                       慢性咳嗽与呼吸道感染诊治高峰论坛
                   </div>
                   <div class="info">
-                      <div class="info-item"><span>主讲人:</span><span>某某某</span></div>
-                      <div class="info-item"><span>主讲人:</span><span>某某某</span></div>
+                      <div class="info-item">
+                          <div class="info-short" @click="view=!view">
+                            <span class="info-label">参会专家&nbsp;:&nbsp;</span>
+                            <span>沈婉婷</span>
+                            <van-icon  class="arrow" name="arrow-down" v-if="!view" />
+                            <van-icon class="arrow" name="arrow-up" v-if="view" />
+                          </div>
+                          <div class="info-detail" v-if="view">
+                              <div class="info-detail-item">
+                                <span class="hospital">上海交大第二附属医院</span>
+                                <span class="name">沈婉婷</span>
+                                <span class="title">主任</span>
+                              </div>
+                              <div class="info-detail-item">
+                                <span class="hospital">上海交大第二附属医院</span>
+                                <span class="name">沈婉婷</span>
+                                <span class="title">主任</span>
+                              </div>
+                              <div class="info-detail-item">
+                                <span class="hospital">上海交大第二附属医院</span>
+                                <span class="name">沈婉婷</span>
+                                <span class="title">主任</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="info-item">
+                        <div class="info-short">
+                          <span>直播时间&nbsp;:&nbsp;</span>
+                          <span>2021-07-24 09:20</span>
+                        </div>
+                      </div>
                   </div>
                 </div>
             </div>
@@ -56,7 +85,7 @@ export default {
     },
     data(){
       return{
-        
+        view:false
 
       }
     },
@@ -100,10 +129,10 @@ export default {
         .box-card{
           width: 100%;
           display: flex;
-          align-items: center;
+          // align-items: center;
           margin-bottom: 10px;
           .box-card-left{
-            width: 48.5%;
+            width: 41%;
             height: 100px;
             box-sizing: border-box;
             border: 1px solid#cacaca;
@@ -127,8 +156,39 @@ export default {
             .info{
               color: #999;
               .info-item{
-                margin: 5px ;
-                font-size: 14px;
+                margin: 5px 5px 5px 0 ;
+                font-size: 12px;
+                .info-short{
+                  display: flex;
+                  align-items: center;
+                  .arrow{
+                    margin-left: 3px;
+                    color: #899AB4;
+                  }
+                }
+                .info-label{
+                  margin-right:5px;
+                } 
+                .info-detail{
+                  .info-detail-item{
+                    &:first-child{
+                      margin-top: 5px;
+                    }
+                    margin-bottom: 6px;
+                    display: flex;
+                    align-items: center;
+                    .hospital{
+                      flex: 2;
+                      line-height: 16px;
+                    }
+                    .name{
+                      flex: 1;
+                    }
+                    .title{
+                      flex: 1;
+                    }
+                  }
+                }
               }
             }
           }

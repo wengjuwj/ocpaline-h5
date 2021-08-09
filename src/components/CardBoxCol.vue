@@ -21,8 +21,8 @@
                   </div>
                   <div class="box-bottom-info">
                       <div class="right-info">
-                        <span>主讲人:</span>
-                        <span>某某某</span>
+                        <span>参会专家:</span>
+                        <span>张晓涛</span>
                       </div>
                   </div>
                 </div>
