@@ -1,19 +1,12 @@
 import request from "@/utils/request";
-
-const TestApi = {
-  ApiOne:"test/classification"
-}
-
 /**
  * @param parameter
  * @returns {*}
  */
-export function getClassification () {
+export function getClassification (query) {
   return request({
-    url: TestApi.ApiOne,
+    url: "/test/classification",
     method: 'get',
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
-    }
+    params: query
   })
 }

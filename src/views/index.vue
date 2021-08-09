@@ -11,6 +11,7 @@
 import Classification from '@/components/Classification'
 import CardBoxCol from '@/components/CardBoxCol'
 import CardBoxLine from '@/components/CardBoxLine'
+import {getClassification} from '@/api/index'
 export default {
     name:'index',
     components:{
@@ -25,10 +26,14 @@ export default {
       }
     },
     created(){
-      
+      this.getList()
     },
     methods:{
-      
+      getList(){
+        getClassification({}).then(response => {
+          console.log('response', response)
+        })
+      }
     }
 }
 </script>

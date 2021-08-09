@@ -7,7 +7,7 @@ import { VueAxios } from './axios'
 //创建axios实例
 const request=axios.create({
   // API请求的默认前缀
-  baseURL:process.env.VUE_APP_API_BASE_URL,
+  baseURL:process.env.VUE_APP_BASE_API,
   timeout:6000//请求超时时间
 })
 // 异常拦截处理器
@@ -53,7 +53,12 @@ request.interceptors.request.use(config=>{
 },errorHandler)
 // response interceptor(响应拦截器)
 request.interceptors.response.use((response)=>{
-  return response.data
+  const res=response.data
+  if (res.code !== 200) {
+    return Promise.reject(new Error(res.message || 'Error'))
+  } else {
+    return res
+  }
 },errorHandler)
 
 const installer = {
