@@ -10,19 +10,19 @@
         </div>
         <!-- 内容部分 -->
         <div class="box-col-card">
-            <div class="box-card" v-for="item in 6" :key="item">
+            <div class="box-card" v-for="(item,index) in cardList" :key="index">
                 <div class="box-card-top">
                   <!-- 封面图部分 -->
-                  <img src="" alt="" srcset="">
+                  <img :src="item.back_img" alt="" srcset="">
                 </div>
                 <div class="box-card-bottom">
                   <div class="box-bottom-title">
-                    慢性咳嗽与呼吸道感染诊治高峰论坛
+                    {{item.name}}
                   </div>
                   <div class="box-bottom-info">
                       <div class="right-info">
                         <span>参会专家:</span>
-                        <span>张晓涛</span>
+                        <span>{{item.professors[0].name}}</span>
                       </div>
                   </div>
                 </div>
@@ -107,6 +107,8 @@ export default {
             height: 100px;
             box-sizing: border-box;
             border: 1px solid#cacaca;
+            display: flex;
+            align-items: center;
             img{
               width: 100%;
             }
@@ -121,6 +123,7 @@ export default {
               -webkit-box-orient: vertical;
               -webkit-line-clamp: 2;
               overflow: hidden;
+              height: 36px;
             }
             .box-bottom-info{
               display: flex;

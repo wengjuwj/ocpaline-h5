@@ -14,36 +14,26 @@
                 <!-- 左封面 -->
                 <div class="box-card-left">
                     <!-- 存放封面图片部分 -->
-                    <img src="" alt="" srcset="">
+                    <img :src="item.back_img" alt="" srcset="">
                 </div>
                 <!-- 右内容 -->
                 <div class="box-card-right">
                   <div class="box-right-title">
-                      慢性咳嗽与呼吸道感染诊治高峰论坛
+                      {{item.name}}
                   </div>
                   <div class="info">
                       <div class="info-item">
-                          <div class="info-short" @click="view=!view">
+                          <div class="info-short" @click="item.view=!item.view">
                             <span class="info-label">参会专家&nbsp;:&nbsp;</span>
-                            <span>沈婉婷</span>
-                            <van-icon  class="arrow" name="arrow-down" v-if="!view" />
-                            <van-icon class="arrow" name="arrow-up" v-if="view" />
+                            <span>{{item.professors[0].name}}</span>
+                            <van-icon  class="arrow" name="arrow-down" v-if="!item.view" />
+                            <van-icon class="arrow" name="arrow-up" v-if="item.view" />
                           </div>
-                          <div class="info-detail" v-if="view">
-                              <div class="info-detail-item">
-                                <span class="hospital">上海交大第二附属医院</span>
-                                <span class="name">沈婉婷</span>
-                                <span class="title">主任</span>
-                              </div>
-                              <div class="info-detail-item">
-                                <span class="hospital">上海交大第二附属医院</span>
-                                <span class="name">沈婉婷</span>
-                                <span class="title">主任</span>
-                              </div>
-                              <div class="info-detail-item">
-                                <span class="hospital">上海交大第二附属医院</span>
-                                <span class="name">沈婉婷</span>
-                                <span class="title">主任</span>
+                          <div class="info-detail" v-if="item.view">
+                              <div class="info-detail-item" v-for="(item1,index1) in item.professors" :key="index1">
+                                <span class="hospital">{{item1.hospital}}</span>
+                                <span class="name">{{item1.name}}</span>
+                                <span class="title">{{item1.title}}</span>
                               </div>
                           </div>
                       </div>
@@ -93,7 +83,7 @@ export default {
       
     },
     methods:{
-      
+  
     }
 }
 </script>
@@ -136,6 +126,8 @@ export default {
             height: 100px;
             box-sizing: border-box;
             border: 1px solid#cacaca;
+            display: flex;
+            align-items: center;
             img{
               width: 100%;
             }
