@@ -2,7 +2,7 @@
   <div class="box-line-wrapper">
      <div class="box-line-box">
        <!-- title部分 -->
-       <div class="box-title-box">
+       <div class="box-title-box" v-if="titleShow">
           <div class="box-line-title">
             <div>{{title}}</div>
             <div class="more">{{more}}</div>
@@ -15,6 +15,10 @@
                 <div class="box-card-left">
                     <!-- 存放封面图片部分 -->
                     <img :src="item.back_img" alt="" srcset="">
+                    <!-- 左上角角标部分 -->
+                    <div class="mark">
+                        <div>直播预告</div>
+                    </div>
                 </div>
                 <!-- 右内容 -->
                 <div class="box-card-right">
@@ -55,13 +59,17 @@
 export default {
     name:'boxLine',
     props:{
+    titleShow:{
+      type:String,
+      default:true
+    },
     title: {
       type: String,
       default: '直播预告'
     },
     more: {
       type: String,
-      default: '更多内容>>'
+      default: '更多>'
     },
     cardList: {
       type: Array,
@@ -90,8 +98,8 @@ export default {
 
 <style lang="less" scoped>
   .box-line-wrapper{
-    margin-top: 15px;
-    padding: 0 10px;
+    margin-top: 5px;
+    padding: 10px 10px 0 10px;
     background: #fff;
     .box-line-box{
       // title 部分
@@ -128,15 +136,29 @@ export default {
             border: 1px solid#cacaca;
             display: flex;
             align-items: center;
+            position: relative;
             img{
               width: 100%;
+            }
+            .mark{
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 80px;
+              height: 25px;
+              border-radius: 4px 0 4px 0;
+              background: rgba(0, 0, 0, 0.6);
+              color: #fff;
+              justify-content: center;
+              display: flex;
+              align-items: center;
             }
           }
           .box-card-right{
             flex: 1;
             margin-left: 15px;
             .box-right-title{
-              height: 40px;
+              // height: 40px;
               font-size: 14px;
               color: #000;
               line-height: 18px;

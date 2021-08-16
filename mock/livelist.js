@@ -55,7 +55,7 @@ function mockData(){
               }
             ]
           }).array,
-          back_img:Mock.Random.image('200x100'),
+          back_img:Mock.Random.image('200x100','#50B347', '#FFF', 'Mock'),
           tele_time:mockTime,
           view:false
 

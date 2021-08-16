@@ -1,9 +1,10 @@
 <template>
   <div class="h5-contain">
      <Classification :class-array="classifications"></Classification>
-     <CardBoxCol title="今日直播" :card-list="card_box_today"></CardBoxCol>
+     <CardBoxLine title="直播预告" :card-list="card_box_today"></CardBoxLine>
      <CardBoxCol title="往期回播" :card-list="card_box_before"></CardBoxCol>
-     <CardBoxLine title="直播预告" :card-list="card_box_before"></CardBoxLine>
+     <!-- <CardBoxLine title="直播预告" :card-list="card_box_before"></CardBoxLine> -->
+     <p style="width:100%;height:20px;"></p>
   </div>
 </template>
 
@@ -18,7 +19,7 @@ export default {
     components:{
       Classification,
       CardBoxCol,
-      CardBoxLine
+      CardBoxLine,
     },
     data(){
       return{

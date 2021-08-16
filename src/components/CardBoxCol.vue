@@ -2,7 +2,7 @@
   <div class="box-col-wrapper">
       <div class="box-col-box">
         <!-- title部分 -->
-        <div class="box-title-box">
+        <div class="box-title-box" v-if="titleShow">
           <div class="box-col-title">
             <div>{{title}}</div>
             <div class="more">{{more}}</div>
@@ -20,10 +20,21 @@
                     {{item.name}}
                   </div>
                   <div class="box-bottom-info">
+                    <div class="info-short">
                       <div class="right-info">
-                        <span>参会专家:</span>
-                        <span>{{item.professors[0].name}}</span>
+                            <span class="info-label">参会专家&nbsp;:&nbsp;</span>
+                            <span>{{item.professors[0].name}}</span>
+                            <!-- <van-icon  class="arrow" name="arrow-down" v-if="!item.view" />
+                            <van-icon class="arrow" name="arrow-up" v-if="item.view" /> -->
                       </div>
+                    </div> 
+                    <div class="info-detail" v-if="item.view">
+                        <div class="info-detail-item" v-for="(item1,index1) in item.professors" :key="index1">
+                          <span class="hospital">{{item1.hospital}}</span>
+                          <span class="name">{{item1.name}}</span>
+                          <span class="title">{{item1.title}}</span>
+                        </div>
+                    </div>
                   </div>
                 </div>
             </div>
@@ -36,13 +47,17 @@
 export default {
     name:'cardBox',
     props:{
+    titleShow:{
+      type:String,
+      default:true
+    },
     title: {
       type: String,
       default: '今日直播'
     },
     more: {
       type: String,
-      default: '更多内容>>'
+      default: '更多>'
     },
     cardList: {
       type: Array,
@@ -71,8 +86,8 @@ export default {
 
 <style lang="less" scoped>
   .box-col-wrapper{
-    margin-top: 15px;
-    padding: 0 10px;
+    margin-top: 5px;
+    padding: 10px 10px 0 10px;
     background: #fff;
     .box-col-box{
       // title 部分
@@ -126,15 +141,40 @@ export default {
               height: 36px;
             }
             .box-bottom-info{
-              display: flex;
-              justify-content: flex-end;
+              .info-short{
+                display: flex;
+                justify-content: flex-end;
+                .info-label{
+                  margin-right:5px;
+                } 
+              }
               .right-info{
                 margin-top: 10px;
                 color: #999;
-                span:first-child{
-                  margin-right: 5px;
-                }
+                display: flex;
+                align-items: center;
               }
+              .info-detail{
+                  color: #999;
+                  .info-detail-item{
+                    &:first-child{
+                      margin-top: 5px;
+                    }
+                    margin-bottom: 6px;
+                    display: flex;
+                    align-items: center;
+                    .hospital{
+                      flex: 2;
+                      line-height: 16px;
+                    }
+                    .name{
+                      flex: 1;
+                    }
+                    .title{
+                      flex: 1;
+                    }
+                  }
+                }
             }
           }
         }
